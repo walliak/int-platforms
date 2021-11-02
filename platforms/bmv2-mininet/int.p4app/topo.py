@@ -36,7 +36,7 @@ _THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
 # install additional libraries
-os.system("dpkg -i /tmp/libraries/bridge-utils_1.5-13+deb9u1_amd64.deb")
+# os.system("dpkg -i /tmp/libraries/bridge-utils_1.5-13+deb9u1_amd64.deb")
 
 
 parser = argparse.ArgumentParser(description='Mininet demo')
@@ -66,7 +66,7 @@ def main():
                   autoStaticArp=True)
 
     create_int_collection_network(net.switches, influxdb=args.influx)
-    create_link_to_external_interface(switch=net.switches[1], external_interface_name='eth1')
+    # create_link_to_external_interface(switch=net.switches[1], external_interface_name='eth1')
 
     net.start()
     

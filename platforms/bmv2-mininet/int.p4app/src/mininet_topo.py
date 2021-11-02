@@ -15,7 +15,7 @@ class MyTopo(Topo):
                             thrift_port = _THRIFT_BASE_PORT + i,
                             pcap_dump = False,
                             device_id = i,
-                            enable_debugger = True)
+                            enable_debugger = False)
 
         for h in range(nb_hosts):
             self.addHost('h%d' % (h + 1), ip="10.0.%d.%d" % ((h + 1) , (h + 1)),
@@ -63,7 +63,7 @@ def configure_hosts(net, nb_hosts):
 
 def configure_switches(net, nb_switches, args):    
     for i in range(nb_switches):
-        cmd = [args.cli, "--json", args.json,
+        cmd = [args.cli,
                "--thrift-port", str(_THRIFT_BASE_PORT + i)
                ]
         with open("commands/commands"+str((i+1))+".txt", "r") as f:
